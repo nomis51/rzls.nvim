@@ -98,8 +98,10 @@ function M.create_vbufs(source_buf)
     --open virtual files
     local virtualHTML = vim.api.nvim_create_buf(true, false)
     local t = vim.api.nvim_buf_get_name(virtualHTML)
+    if t == nil or t == "" then
+        vim.api.nvim_buf_set_name(virtualHTML, currentFile .. projectedHTMLSuffix)
+    end
     vim.print("Hello" .. t)
-    vim.api.nvim_buf_set_name(virtualHTML, currentFile .. projectedHTMLSuffix)
     vim.print("Virtual HTML buffer: " .. virtualHTML)
     local virtualCSharp = vim.api.nvim_create_buf(true, false)
     vim.api.nvim_buf_set_name(virtualCSharp, currentFile .. projectedCSharpSuffix)
