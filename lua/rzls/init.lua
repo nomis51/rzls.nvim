@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd("BufRead", {
             lspClientID = vim.lsp.start({
                 name = "rzls",
                 cmd = {
-                    rzlsconfig.path .. "/rzls",
+                    rzlsconfig.path .. "/rzls.exe",
                     "--logLevel",
                     "0",
                     "--DelegateToCSharpOnDiagnosticsPublish",
