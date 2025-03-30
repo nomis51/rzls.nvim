@@ -8,6 +8,10 @@ local empty_response = {}
 ---@param _ctx lsp.HandlerContext
 ---@param _config table
 return function(_err, result, _ctx, _config)
+    if not result.textDocument then
+        return empty_response
+    end
+
     local virtual_document =
         documentstore.get_virtual_document(result.textDocument.uri, razor.language_kinds.csharp, "any")
     if not virtual_document then
