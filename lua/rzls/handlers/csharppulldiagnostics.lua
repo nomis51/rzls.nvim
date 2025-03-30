@@ -9,6 +9,7 @@ local empty_response = {}
 ---@param _config table
 return function(_err, result, _ctx, _config)
     if not result.textDocument then
+        vim.notify("Bacon", vim.log.levels.ERROR, { title = "Baconator" })
         return empty_response
     end
 
